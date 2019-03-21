@@ -5,19 +5,12 @@ using UnityEngine;
 public class ObjectPooler : MonoBehaviour
 {
 
-    public static ObjectPooler SharedInstance;
-
-    void Awake()
-    {
-        SharedInstance = this;
-    }
-
     public Stack<GameObject> pooledObjects;
     public GameObject objectToPool;
     public int amountToPool;
 
     // Start is called before the first frame update
-    void Start()
+   public void createPool()
     {
         pooledObjects = new Stack<GameObject>();
         for (int i = 0; i < amountToPool; i++)
@@ -34,9 +27,9 @@ public class ObjectPooler : MonoBehaviour
         return pooledObjects.Pop();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void backInPool(GameObject obj)
     {
-        
+        pooledObjects.Push(obj);
     }
+
 }
