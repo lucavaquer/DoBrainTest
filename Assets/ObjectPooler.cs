@@ -9,7 +9,7 @@ public class ObjectPooler : MonoBehaviour
     public GameObject objectToPool;
     public int amountToPool;
 
-    // Start is called before the first frame update
+    // Create pool of objects in a stack
    public void createPool()
     {
         pooledObjects = new Stack<GameObject>();
@@ -22,14 +22,17 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
+    // Pop and return object from stack
     public GameObject GetPooledObject()
     {
         return pooledObjects.Pop();
     }
 
+    // Push back object into stack
     public void backInPool(GameObject obj)
     {
         pooledObjects.Push(obj);
+        obj.SetActive(false);
     }
 
 }

@@ -4,18 +4,8 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
+    // Button index and color vaiables
+    public int levelIndex;
+    public Color buttonColor;
 
-    public int level;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
