@@ -8,6 +8,7 @@ public class ObjectPooler : MonoBehaviour
     public Stack<GameObject> pooledObjects;
     public GameObject objectToPool;
     public int amountToPool;
+    public bool pollEmbty = false;
 
     // Create pool of objects in a stack
    public void createPool()
@@ -25,6 +26,11 @@ public class ObjectPooler : MonoBehaviour
     // Pop and return object from stack
     public GameObject GetPooledObject()
     {
+        if (pooledObjects.Peek() == null)
+        {
+            return null;
+        }
+
         return pooledObjects.Pop();
     }
 
@@ -33,6 +39,11 @@ public class ObjectPooler : MonoBehaviour
     {
         pooledObjects.Push(obj);
         obj.SetActive(false);
+    }
+
+    public bool isStackEmpty()
+    {
+        return pooledObjects.Count == 0;
     }
 
 }

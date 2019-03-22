@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MainScript : MonoBehaviour
 {
-    float actualX = -920.0f;
+    float actualX = -910.0f;
 
     GameObject[] levels = new GameObject[90];
     int loadedLevels = 0;
@@ -19,7 +19,7 @@ public class MainScript : MonoBehaviour
         do
         {
             levels[loadedLevels] = this.GetComponent<ObjectPooler>().GetPooledObject();
-            actualX += 60.0f;
+            actualX += 20.0f;
             levels[loadedLevels].transform.localPosition = new Vector3(actualX, Random.Range(-70, 70), 0);
             // Set levelIndex variable
             levels[loadedLevels].GetComponent<Button>().levelIndex = loadedLevels + 1;
@@ -36,10 +36,10 @@ public class MainScript : MonoBehaviour
     public void whenScrollActive()
     {
         // Create new level button only when next level is in view
-        if (levels[loadedLevels-1].GetComponentInParent<Canvas>().pixelRect.Contains(levels[loadedLevels-1].transform.position))
+        if (levels[loadedLevels-1].GetComponentInParent<Canvas>().pixelRect.Contains(levels[loadedLevels-1].transform.position) && !this.GetComponent<ObjectPooler>().isStackEmpty())
         {
             levels[loadedLevels] = this.GetComponent<ObjectPooler>().GetPooledObject();
-            actualX += 60.0f;
+            actualX += 20.0f;
             levels[loadedLevels].transform.localPosition = new Vector3(actualX, Random.Range(-70, 70), 0);
             levels[loadedLevels].GetComponent<Button>().levelIndex = loadedLevels + 1;
             levels[loadedLevels].GetComponentInChildren<Text>().text = levels[loadedLevels].GetComponent<Button>().levelIndex.ToString();
@@ -53,7 +53,7 @@ public class MainScript : MonoBehaviour
         if (!levels[loadedLevels - 2].GetComponentInParent<Canvas>().pixelRect.Contains(levels[loadedLevels - 2].transform.position))
         {
             this.GetComponent<ObjectPooler>().backInPool(levels[loadedLevels-1]);
-            actualX -= 60.0f;
+            actualX -= 20.0f;
             loadedLevels -= 1;
         }
     }

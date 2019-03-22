@@ -145,6 +145,7 @@ MonoBehaviour:
   objectToPool: {fileID: 2823777334456345979, guid: d8262ddda1abd4ba9a943ead452369a8,
     type: 3}
   amountToPool: 90
+  pollEmbty: 0
 --- !u!4 &164106491
 Transform:
   m_ObjectHideFlags: 0
@@ -298,14 +299,14 @@ RectTransform:
   m_GameObject: {fileID: 534779741}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8, y: 5, z: 5}
+  m_LocalScale: {x: 24, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 1798105059}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5990, y: 0}
+  m_AnchoredPosition: {x: 20406, y: 0}
   m_SizeDelta: {x: -634, y: -900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &534779743
@@ -315,7 +316,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534779741}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
